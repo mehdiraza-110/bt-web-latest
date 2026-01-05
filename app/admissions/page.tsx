@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import {
   Search,
   Calendar,
   DollarSign,
   BookOpen,
   ArrowRight,
+  Loader2,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -22,7 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { useRouter, useSearchParams } from "next/navigation";
 import { fetchAdmissionDetails } from "@/components/apis/admissions";
 
-export default function Admissions() {
+function AdmissionsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -276,5 +277,20 @@ export default function Admissions() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Admissions() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="h-12 w-12 animate-spin text-primary mx-auto mb-4" />
+          <p className="text-muted-foreground">Loading admissions...</p>
+        </div>
+      </div>
+    }>
+      <AdmissionsContent />
+    </Suspense>
   );
 }
