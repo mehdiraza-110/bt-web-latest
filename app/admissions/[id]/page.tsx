@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { fetchAdmissionById } from "@/app/apis/admissions";
+import { fetchAdmissionById } from "@/components/apis/admissions";
 import { useEffect, useState } from "react";
 
 export default function AdmissionDetail() {
