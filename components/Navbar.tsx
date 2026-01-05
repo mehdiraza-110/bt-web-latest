@@ -23,10 +23,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary p-2 rounded-lg group-hover:scale-105 transition-transform">
+            {/* <div className="bg-primary p-2 rounded-lg group-hover:scale-105 transition-transform">
               <GraduationCap className="h-6 w-6 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-primary">Beyond Taleem</span>
+            <span className="text-xl font-bold text-primary">Beyond Taleem</span> */}
+            <img src="/header-logo.png" alt="" className="h-12 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
