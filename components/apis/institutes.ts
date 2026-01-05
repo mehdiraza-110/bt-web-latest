@@ -19,3 +19,21 @@ export async function fetchInstitutes({ page = 1, search = "", city = "" }) {
     console.error("Error:", error);
   }
 }
+
+export async function fetchInstituteById(id: string | number) {
+  try {
+    const res = await fetch(`${GetBaseURL()}/institutes/${id}`, {
+      cache: "no-store",
+    });
+    
+    if (!res.ok) {
+      throw new Error(`Failed to fetch institute: ${res.status}`);
+    }
+    
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.error("Error fetching institute:", error);
+    throw error;
+  }
+}
