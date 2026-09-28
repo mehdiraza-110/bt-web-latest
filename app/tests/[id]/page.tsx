@@ -216,10 +216,22 @@ export default function TestDetail() {
               <CardContent className="p-6">
                 <h2 className="text-2xl font-bold mb-4">Test Overview</h2>
 
-                <p className="text-muted-foreground mb-6">
-                  {test.test_overview ||
-                    `${test.test_full_name || test.test_name} is an important entrance test for students.`}
-                </p>
+                {test.test_overview ? (
+                  <div
+                    className="prose prose-sm max-w-none mb-6
+                      prose-headings:text-foreground
+                      prose-p:text-muted-foreground
+                      prose-a:text-primary hover:prose-a:underline
+                      prose-strong:text-foreground
+                      prose-ul:text-muted-foreground
+                      prose-ol:text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: test.test_overview }}
+                  />
+                ) : (
+                  <p className="text-muted-foreground mb-6">
+                    {`${test.test_full_name || test.test_name} is an important entrance test for students.`}
+                  </p>
+                )}
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
